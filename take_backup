@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Script for backing up https://github.com/partio-scout/kipa events
+# @author ville.pekkinen@gmail.com, 2022
+
+set -o errexit
+set -o nounset
+
+main() {
+  if [[ -f ".env" ]]; then
+    source ".env"
+  else
+    echo "Could not find .env file, will exit with code 1"
+    exit 1
+  fi
+
+  BACKUP_URL="${HOST}:${PORT}/kipa/${EVENT_NAME}/tallenna/"
+  TIMESTAMP=$(date +%m%d%H%M)
+  BACKUP_FILE="${BACKUP_DIR}/${EVENT_NAME}_${TIMESTAMP}.xml"
+  
+  mkdir -p "${BACKUP_DIR}"
+  curl --verbose --fail --output "${BACKUP_FILE}" "${BACKUP_URL}"
+}
+
+main
