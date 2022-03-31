@@ -1,4 +1,4 @@
-# kipa-backup
+# kipa-backup-script
 
 Bash script for backing up https://github.com/partio-scout/kipa events.
 
