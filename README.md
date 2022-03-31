@@ -2,7 +2,9 @@
 
 Bash script for backing up https://github.com/partio-scout/kipa events.
 
-For example, schedule this to be run every 15 min, create (private) github repo for backups and add some magic for auto commits. Might also want to implement some simple monitoring for failing backups and/or latest backup age, e.g. a simple html page that is updated depending on script exit code.
+For example, schedule this to be run every 15 min, create (private) github repo for backups and add some magic for auto commits. 
+
+Might also want to implement some simple monitoring for failing backups and/or latest backup age, for example a simple html page that is updated depending on script exit code.
 
 ## Set up envs
 
