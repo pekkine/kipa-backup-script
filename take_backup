@@ -15,11 +15,18 @@ main() {
   fi
 
   BACKUP_URL="${HOST}:${PORT}/kipa/${EVENT_NAME}/tallenna/"
-  TIMESTAMP=$(date +%m%d%H%M)
-  BACKUP_FILE="${BACKUP_DIR}/${EVENT_NAME}_${TIMESTAMP}.xml"
-  
-  mkdir -p "${BACKUP_DIR}"
+  TIMESTAMP=$(date)
+  BACKUP_FILE="${BACKUP_DIR}/${EVENT_NAME}.xml"
+
   curl --verbose --fail --output "${BACKUP_FILE}" "${BACKUP_URL}"
+
+  cd ${BACKUP_DIR}
+ 
+  git add .
+
+  if git commit -m "${TIMESTAMP}"; then
+    git push
+  fi
 }
 
 main
