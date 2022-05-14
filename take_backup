@@ -7,14 +7,7 @@ set -o errexit
 set -o nounset
 
 main() {
-  if [[ -f ".env" ]]; then
-    source ".env"
-  else
-    echo "Could not find .env file, will exit with code 1"
-    exit 1
-  fi
-
-  BACKUP_URL="${HOST}:${PORT}/kipa/${EVENT_NAME}/tallenna/"
+  BACKUP_URL="http://192.168.1.50/kipa/kierikki/tallenna/"
   TIMESTAMP=$(date)
   BACKUP_FILE="${BACKUP_DIR}/${EVENT_NAME}.xml"
 
