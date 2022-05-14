@@ -9,7 +9,8 @@ set -o nounset
 main() {
   BACKUP_URL="http://192.168.1.50/kipa/kierikki/tallenna/"
   TIMESTAMP=$(date)
-  BACKUP_FILE="${BACKUP_DIR}/${EVENT_NAME}.xml"
+  BACKUP_DIR="/home/pekkine/kierikki-kipa-backup"
+  BACKUP_FILE="${BACKUP_DIR}/kierikki.xml"
 
   curl --verbose --fail --output "${BACKUP_FILE}" "${BACKUP_URL}"
 
