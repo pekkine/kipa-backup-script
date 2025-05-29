@@ -12,10 +12,10 @@ Replace values with your own.
 
 ```
 touch .env
-echo HOST="localhost" >> .env
-echo PORT="3000" >> .env
-echo EVENT_NAME="testikisa" >> .env
-echo BACKUP_REPO_DIR="/Users/pekkine/testikisa-kipa-backup" >> .env
+echo HOST=localhost >> .env
+echo PORT=8000 >> .env
+echo EVENT_NAME=Kaaos_testikisa >> .env
+echo BACKUP_REPO_DIR=/Users/pekkinev/kaaos-kipa-backup >> .env
 ```
 
 ## Set up git repo

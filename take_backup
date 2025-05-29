@@ -7,14 +7,15 @@ set -o errexit
 set -o nounset
 
 main() {
-  BACKUP_URL="http://192.168.1.50/kipa/kierikki/tallenna/"
+  source .env
+  BACKUP_URL="http://${HOST}:${PORT}/kipa/${EVENT_NAME}/tallenna/"
+  echo $BACKUP_URL
   TIMESTAMP=$(date)
-  BACKUP_DIR="/home/pekkine/kierikki-kipa-backup"
-  BACKUP_FILE="${BACKUP_DIR}/kierikki.xml"
+  BACKUP_FILE="${BACKUP_REPO_DIR}/backup.xml"
 
   curl --verbose --fail --output "${BACKUP_FILE}" "${BACKUP_URL}"
 
-  cd ${BACKUP_DIR}
+  cd ${BACKUP_REPO_DIR}
  
   git add .
 
